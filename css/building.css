@@ -1,0 +1,120 @@
+
+body {
+    background-color: lightblue;
+}
+
+label {
+    position: absolute;
+}
+
+/* #check_boxOne {
+    width: 250px;
+    height: 130px;
+    margin-left: 10em;
+} */
+
+.checkbox {
+    width: 250px;
+    height: 130px;
+    margin-left: 10em;
+}
+
+.imgSize {
+    width: 30px;
+    height: 40px;
+    margin-left: -4px;
+}
+
+.ExteriorMaterial {
+    width: 65px;
+    height: 50px;
+    margin-left: 1em;
+}
+
+.thelabel {
+    position: relative;
+}
+.movebtn  {
+    margin-left: 20em;
+}
+
+.outputMaterial {
+    margin-top: 5em;
+
+}
+
+.outputColor {
+    margin-top: 7em;
+}
+
+.checkbox {
+    margin-top: 5em;
+}
+
+.footage {
+    margin-top: 5em;
+}
+
+.outputGarage {
+    margin-top: 5em;
+}
+
+.estimateOut {
+    margin-top: 5em;
+}
+
+/* body {
+    background-color: lightblue;
+}
+#check_boxOne {
+    width: 300px;
+    height: 150px;
+    margin-left: 1em;
+}
+
+
+#check_boxTwo {
+    width: 300px;
+    height: 150px;
+    margin-left: 1em;
+}
+
+/*
+input[type=checkbox].css-checkbox{ display: none; }
+
+.css-label{
+    padding-left: 20px;
+    display: flex;
+    width: 50%;
+    height: 200px;
+    background-image: url("../images/twoStory.png");
+    background-repeat: no-repeat;
+    background-color: #E9EEF4;
+    background-size: contain;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+ background-position: 0 0;
+ border: 3px solid #2FBCDF;
+}
+-----------------------------------------------------------------------------
+
+/*
+#check_boxOne {
+    display: none;
+}
+
+
+#check_boxOne:after {
+    content:"";
+    display: inline-block;
+    width: 300px;
+    height:200px;
+    background: url("../images/oneStory.jpg") no-repeat;
+
+}
+
+#check_boxTwo {
+    background: url("../images/twoStory.png") no-repeat;
+}
+*/

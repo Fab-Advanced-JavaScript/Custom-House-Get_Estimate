@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Building a New House</title>
+        <script src="buildingHouse.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="css/building.css">
+    </head>
+    <body>
+        <h1>Customize your house and Get an Estimate</h1>
+        <br><br>
+
+        <!-- <div class="myImgOne">
+            <label for="" >Single Story:</label>
+            <img id= "sOne" class="checkbox" onclick="addBorder(this);" value="1" src="../images/oneStory.jpg" alt="One Story"></span> <br><br><br>
+
+            <label for="">Two Story:</label>
+            <img id="sTwo" class="checkbox" onclick="addBorder(this);"  value="2" src="../images/twoStory.png" alt="Two Story"></span>
+        </div> -->
+
+        <div class="myImgOne">
+            <label for="" >Single Story:</label>
+            <img id= "sOne" class="checkbox" onclick="addBorderOne(this);" src="images/oneStory.jpg" alt="One Story"></span> <br><br><br>
+
+            <label for="">Two Story:</label>
+            <img id="sTwo" class="checkbox" onclick="addBorderOne(this);" src="images/twoStory.png" alt="Two Story"></span>
+        </div>
+        <br><br><br>
+        <div class="">
+            <label for="" >Color:</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <img id="blueFab" class="imgSize" onclick="addBorderTwo(this);" src="images/blue.png" alt="One Story">
+            <img id="greyFab" class="imgSize" onclick="addBorderTwo(this);" src="images/grey.png" alt="Two Story">
+            <img id="greenFab" class="imgSize" onclick="addBorderTwo(this);" src="images/green.png" alt="One Story">
+            <img id="redFab" class="imgSize" onclick="addBorderTwo(this);" src="images/red.png" alt="Two Story">
+            <img id="yellowFab" class="imgSize" onclick="addBorderTwo(this);" src="images/yellow.png" alt="Two Story">
+            <img id="lightblueFab" class="imgSize" onclick="addBorderTwo(this);" src="images/lightblue.png" alt="Two Story">
+            <img id="whiteFab" class="imgSize" onclick="addBorderTwo(this);" src="images/whitepng.png" alt="One Story">
+            <img id="blackFab" class="imgSize" onclick="addBorderTwo(this);" src="images/black.png" alt="Two Story">
+        </div>
+        <div class="">
+
+        </div>
+        <br><br><br>
+
+        <div class="">
+            <label for="" >Exterior Material:</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+            <img id="vinyl" class="ExteriorMaterial" onclick="addBorderThree(this);" src="images/vinyl.jpg" alt="Vinyl">
+            <img id="wood" class="ExteriorMaterial" onclick="addBorderThree(this);" src="images/wood.jpg" alt="Wood">
+            <img id="stucco"  class="ExteriorMaterial" onclick="addBorderThree(this);" src="images/stucco.jpg" alt="Stucco">
+            <img id="bricks"   class="ExteriorMaterial" onclick="addBorderThree(this);" src="images/bricks.png" alt="Bricks">
+            <img id="stone"  class="ExteriorMaterial" onclick="addBorderThree(this);" src="images/stone.jpg" alt="Stone">
+        </div>
+        <div class="">
+
+        </div>
+        <br><br><br>
+
+        <div class="">
+            <label for="" class="thelabel">Square Footage:</label>&emsp;&emsp;&nbsp;
+            <input type="text" id="sqft" name="sqft" value="">
+
+        </div>
+        <br><br><br>
+
+        <div class="">
+            <label for="" class="thelabel">Garage (Number of Vehicles):</label>&emsp;&emsp;&nbsp;
+            <input id="v1" type="radio" name="Vehicles" value="1"><label for="">1</label>&emsp;
+            <input id="v2" type="radio" name="Vehicles" value="2"><label for="">2</label>&emsp;
+            <input id="v3" type="radio" name="Vehicles" value="3"><label for="">3</label>
+        </div>
+        <br><br><br>
+
+        <div class="movebtn">
+            <button type="button" name="button" id="estimate">Get Detailed Estimate</button>
+        </div>
+        <br><br><br>
+
+
+    </body>
+</html>
