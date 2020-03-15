@@ -1,19 +1,5 @@
 
 const init = () => {
-
-    // let btn = document.querySelector("#estimate");
-    // btn.onclick = displayEstimate;
-
-    // let listImg = document.querySelectorAll("img");
-    //
-    //     for(let i = 0; i < listImg.length; i++) {
-    //         listImg[i].addEventListener("click", imgElement => {
-    //             addBorder(listImg[i]);
-    //             console.log(listImg[i]);
-    //
-    //         })
-    //     }
-    //
         let btn = document.querySelector("#estimate");
         btn.onclick = displayEstimate;
 
