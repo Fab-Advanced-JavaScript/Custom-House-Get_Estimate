@@ -59,6 +59,18 @@ const displayEstimate = () => {
         creatDiv.appendChild(imgPartTwo);
         document.body.appendChild(creatDiv);
         document.body.appendChild(br);
+    } else {
+        let oldImg = document.querySelector(".outputStory img");
+        let oldChild = document.querySelector(".outputStory label")
+        if(oldImg && oldChild) {
+            oldImg.parentNode.replaceChild(imgPartOne, oldImg);
+            oldChild.parentNode.replaceChild(labelElementStoryOne, oldChild);
+
+        } else if(oldImg && oldChild) {
+            oldImg.parentNode.replaceChild(imgPartTwo, oldImg);
+            oldChild.parentNode.replaceChild(labelElementStoryTwo, oldChild);
+
+        }
     }
 
     // declaring color image variables
