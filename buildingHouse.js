@@ -7,7 +7,6 @@ const init = () => {
 
 const displayEstimate = () => {
 
-
     // Declare const
     const oneStoryCost = 175;
     const twoStoryCost = 135;
@@ -23,9 +22,11 @@ const displayEstimate = () => {
     let creatDiv = document.querySelector(".outputStory");
     // creating label
     let labelElementStoryOne = document.createElement("label")
+    labelElementStoryOne.id = "myLabelOne"
     labelElementStoryOne.textContent = "Single Story";
 
     let labelElementStoryTwo = document.createElement("label")
+    labelElementStoryTwo.id = "myLabelTwo";
     labelElementStoryTwo.textContent = "Two Story";
 
     // creating image for story
@@ -45,6 +46,7 @@ const displayEstimate = () => {
     // creating check to determine which story was selected
     if(imgOneChecked.style.border == "2px inset rgb(7, 220, 227)" && !creatDiv ) {
         costPerSqFt = oneStoryCost * sqFootage;
+        console.log(imgOneChecked);
         creatDiv = document.createElement("div");
         creatDiv.classList.add("outputStory");
         creatDiv.appendChild(labelElementStoryOne);
@@ -52,64 +54,53 @@ const displayEstimate = () => {
         document.body.appendChild(creatDiv);
     } else if(imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)" && !creatDiv) {
         costPerSqFt = twoStoryCost * sqFootage;
+        console.log(imgTwoChecked);
         creatDiv = document.createElement("div");
         creatDiv.classList.add("outputStory");
         creatDiv.appendChild(labelElementStoryTwo);
         creatDiv.appendChild(imgPartTwo);
         document.body.appendChild(creatDiv);
     } else {
-        // imgPartOne = document.querySelector(".outputStory img");
-        // imgPartTwo = document.querySelector(".outputStory img");
         let oldLabel = document.querySelector(".outputStory label");
+        let oldLabelOne = document.querySelector("#myLabelOne");
+        let oldLabelTwo = document.querySelector("#myLabelTwo");
+        let oldImg = document.querySelector(".outputStory img");
+        let newImgOne = document.querySelector("#imageOne");
+        let newImgTwo = document.querySelector("#imageTwo");
 
-        let oldImgOne = document.querySelector("#imageOne");
-        let oldImgTwo = document.querySelector("#imageTwo");
 
-        if(oldImgOne) {
-            console.log(oldImgOne);
-            oldImgOne.parentNode.replaceChild(imgPartTwo, oldImgOne);
+        // let newStoryDiv = document.querySelector(".storyDiv");
+        //
+        //     oldDiv.parentNode.removeChild(oldDiv);
+        //     newStoryDiv = document.createElement("div");
+        //     newStoryDiv.classList.add("storyDiv");
+        //     newStoryDiv.appendChild(labelElementStoryOne);
+        //     newStoryDiv.appendChild(imgPartOne);
+        //     document.body.appendChild(newStoryDiv);
+
+        if(newImgOne) {
+            console.log(newImgOne);
+            newImgOne.parentNode.replaceChild(imgPartTwo, newImgOne);
             oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
             console.log(imgPartTwo);
-        } else if (oldImgTwo) {
-            console.log(oldImgTwo);
-            oldImgTwo.parentNode.replaceChild(imgPartOne, oldImgTwo);
+            console.log(labelElementStoryTwo);
+            console.log(oldLabel);
+        } else if (newImgTwo) {
+            console.log(newImgTwo);
+            newImgTwo.parentNode.replaceChild(imgPartOne, newImgTwo);
             oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
             console.log(imgPartOne);
+            console.log(labelElementStoryOne);
+            console.log(oldLabel);
+        } else if(imgOneChecked) {
+            imgOneChecked.parentNode.replaceChild(imgPartOne, imgOneChecked);
+            oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
+            console.log(imgPartOne.src = "images/oneStory.jpg" );
+        }  else if(imgTwoChecked) {
+            imgTwoChecked.parentNode.replaceChild(imgPartTwo, imgTwoChecked);
+            oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
         }
     }
-            // imgPartOne.parentNode.replaceChild(imgPartTwo, imgPartOne);
-            // console.log(imgPartTwo);
-            // console.log(imgPartOne);
-            // oldChild.parentNode.replaceChild(labelElementStoryTwo, oldChild);
-            // console.log(oldChild);
-            // console.log(labelElementStoryTwo);
-
-
-        // } else if(imgPartTwo.src == "images/twoStory.png") {
-        //     imgPartTwo.parentNode.replaceChild(imgPartOne, imgPartTwo);
-        //     console.log(imgPartTwo);
-        //     console.log(imgPartOne);
-        //     oldChild.parentNode.replaceChild(labelElementStoryOne, oldChild);
-        //     console.log(oldChild);
-        //     console.log(labelElementStoryOne);
-        //
-        // }
-
-        // imgPartTwo.parentNode.replaceChild(imgPartOne, imgPartTwo);
-        // console.log(imgPartTwo);
-        // labelElementStoryTwo.parentNode.replaceChild(labelElementStoryOne, labelElementStoryTwo);
-        // console.log(labelElementStoryTwo);
-        // console.log(oldChild);
-
-            //
-            // } else if(imgPartOne && labelElementStoryOne) {
-            //         console.log(imgPartOne);
-            //         oldImg.parentNode.replaceChild(imgPartTwo, oldImg);
-            //         console.log(imgPartTwo);
-            //         oldChild.parentNode.replaceChild(labelElementStoryTwo, oldChild);
-            //         console.log(labelElementStoryTwo);
-            //         console.log(oldChild);
-            // }
 
     // declaring color image variables
     let blueImgChecked = document.querySelector("#blueFab");
@@ -121,6 +112,7 @@ const displayEstimate = () => {
     let whiteImgChecked = document.querySelector("#whiteFab");
     let blackImgChecked = document.querySelector("#blackFab");
 
+
     // creating <div class="outpucolor"><labe/><img></label></div> to display the selected color
     let createColor = document.querySelector(".outputColor");
     // creating <label></label>
@@ -130,34 +122,42 @@ const displayEstimate = () => {
 
     // creating image for color
     let imgBlue = document.createElement("img");
+    imgBlue.id ="myBlue";
     imgBlue.src = "images/blue.png";
     imgBlue.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgGrey = document.createElement("img");
+    imgGrey.id = "myGrey";
     imgGrey.src = "images/grey.png";
     imgGrey.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgGreen = document.createElement("img");
+    imgGreen.id = "myGreen";
     imgGreen.src = "images/green.png";
     imgGreen.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgRed = document.createElement("img");
+    imgRed.id = "myRed";
     imgRed.src = "images/red.png";
     imgRed.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgYellow = document.createElement("img");
+    imgYellow.id = "myYellow";
     imgYellow.src = "images/yellow.png";
     imgYellow.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgLightBlue = document.createElement("img");
+    imgLightBlue.id = "myLightBlue";
     imgLightBlue.src = "images/lightblue.png";
     imgLightBlue.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgWhite = document.createElement("img");
+    imgWhite.id = "myWhite";
     imgWhite.src = "images/whitepng.png";
     imgWhite.style = "width: 50px; height: 80px; margin-left: 10em;"
 
     let imgBlack = document.createElement("img");
+    imgBlack.id = "myBlack";
     imgBlack.src = "images/black.png";
     imgBlack.style = "width: 50px; height: 80px; margin-left: 10em;"
 
@@ -210,7 +210,54 @@ const displayEstimate = () => {
         createColor.appendChild(colorlabelElement);
         createColor.appendChild(imgBlack);
         document.body.appendChild(createColor);
+    } else {
+        let oldBlue = document.querySelector("#myBlue");
+        let oldGrey = document.querySelector("#myGrey");
+        let oldGreen = document.querySelector("#myGreen");
+        let oldRed = document.querySelector("#myRed");
+        let oldYellow = document.querySelector("#myYellow");
+        let oldLightBlue = document.querySelector("#myLightBlue");
+        let oldWhite = document.querySelector("#myWhite");
+        let oldBlack = document.querySelector("#myBlack");
+
+        //check the existing image and replace it with the selected images
+        // if(oldBlue) {
+        //     oldBlue.parentNode.replaceChild(imgGrey, oldBlue);
+        // } else if(oldGrey) {
+        //     oldGrey.parentNode.replaceChild(imgGreen, oldGrey);
+        // } else if(oldGreen) {
+        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
+        // } else if(oldRed) {
+        //     oldRed.parentNode.replaceChild(imgBlue, oldRed);
+        // } else if(oldYellow) {
+        //     oldYellow.parentNode.replaceChild(imgBlue, oldYellow);
+        // } else if(oldLightBlue) {
+        //     oldLightBlue.parentNode.replaceChild(imgBlue, oldLightBlue);
+        // } else if(oldWhite) {
+        //     oldWhite.parentNode.replaceChild(imgBlue, oldWhite);
+        // } else if(oldBlack) {
+        //     oldBlack.parentNode.replaceChild(imgBlue, oldBlack);
+        // }
+
+        // }else if(oldGreen) {
+        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
+        // }else if(oldGreen) {
+        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
+        // }else if(oldGreen) {
+        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
+        // }
+
+
+            // oldBlue.parentNode.replaceChild(imgRed, oldBlue);
+            // oldBlue.parentNode.replaceChild(imgYellow, oldBlue);
+            // oldBlue.parentNode.replaceChild(imgLightBlue, oldBlue);
+            // oldBlue.parentNode.replaceChild(imgWhite, oldBlue);
+            // oldBlue.parentNode.replaceChild(imgBlack, oldBlue);
+
     }
+
+
+
     // declaring exterior Material variables
     let vinylChecked = document.querySelector("#vinyl");
     let woodChecked = document.querySelector("#wood");
