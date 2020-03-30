@@ -32,13 +32,15 @@ const displayEstimate = () => {
     // creating image for story
     let imgPartOne = document.createElement("img");
     imgPartOne.src = "images/oneStory.jpg";
-    imgPartOne.id = "imageOne";
-    imgPartOne.style = "width:250px; height:130px; margin-left:10em;"
+    imgPartOne.id = "sOne";
+    imgPartOne.style = "width:250px; height:130px; margin-left:10em; "
+    // border: 2px inset rgb(252, 190, 3)
 
     let imgPartTwo = document.createElement("img");
     imgPartTwo.src = "images/twoStory.png"
-    imgPartTwo.id = "imageTwo";
-    imgPartTwo.style = "width:250px; height: 130px; margin-left:10em;"
+    imgPartTwo.id = "sTwo";
+    imgPartTwo.style = "width:250px; height: 130px; margin-left:10em; "
+    // border: 2px inset rgb(3, 181, 252)
 
     // get the square footage from the user
     sqFootage = document.querySelector("#sqft").value;
@@ -46,7 +48,6 @@ const displayEstimate = () => {
     // creating check to determine which story was selected
     if(imgOneChecked.style.border == "2px inset rgb(7, 220, 227)" && !creatDiv ) {
         costPerSqFt = oneStoryCost * sqFootage;
-        console.log(imgOneChecked);
         creatDiv = document.createElement("div");
         creatDiv.classList.add("outputStory");
         creatDiv.appendChild(labelElementStoryOne);
@@ -54,51 +55,27 @@ const displayEstimate = () => {
         document.body.appendChild(creatDiv);
     } else if(imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)" && !creatDiv) {
         costPerSqFt = twoStoryCost * sqFootage;
-        console.log(imgTwoChecked);
         creatDiv = document.createElement("div");
         creatDiv.classList.add("outputStory");
         creatDiv.appendChild(labelElementStoryTwo);
         creatDiv.appendChild(imgPartTwo);
         document.body.appendChild(creatDiv);
     } else {
-        let oldLabel = document.querySelector(".outputStory label");
-        let oldLabelOne = document.querySelector("#myLabelOne");
-        let oldLabelTwo = document.querySelector("#myLabelTwo");
         let oldImg = document.querySelector(".outputStory img");
-        let newImgOne = document.querySelector("#imageOne");
-        let newImgTwo = document.querySelector("#imageTwo");
+        let oldLabel = document.querySelector(".outputStory label");
 
-
-        // let newStoryDiv = document.querySelector(".storyDiv");
-        //
-        //     oldDiv.parentNode.removeChild(oldDiv);
-        //     newStoryDiv = document.createElement("div");
-        //     newStoryDiv.classList.add("storyDiv");
-        //     newStoryDiv.appendChild(labelElementStoryOne);
-        //     newStoryDiv.appendChild(imgPartOne);
-        //     document.body.appendChild(newStoryDiv);
-
-        if(newImgOne) {
-            console.log(newImgOne);
-            newImgOne.parentNode.replaceChild(imgPartTwo, newImgOne);
+        if(imgPartOne && imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)") {
+            console.log(imgTwoChecked);
+            console.log(imgPartOne);
+            oldImg.parentNode.replaceChild(imgPartTwo, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
             console.log(imgPartTwo);
-            console.log(labelElementStoryTwo);
-            console.log(oldLabel);
-        } else if (newImgTwo) {
-            console.log(newImgTwo);
-            newImgTwo.parentNode.replaceChild(imgPartOne, newImgTwo);
+        } else if (imgPartTwo && imgOneChecked.style.border == "2px inset rgb(7, 220, 227)") {
+            console.log(imgOneChecked);
+            console.log(imgPartTwo);
+            oldImg.parentNode.replaceChild(imgPartOne, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
             console.log(imgPartOne);
-            console.log(labelElementStoryOne);
-            console.log(oldLabel);
-        } else if(imgOneChecked) {
-            imgOneChecked.parentNode.replaceChild(imgPartOne, imgOneChecked);
-            oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
-            console.log(imgPartOne.src = "images/oneStory.jpg" );
-        }  else if(imgTwoChecked) {
-            imgTwoChecked.parentNode.replaceChild(imgPartTwo, imgTwoChecked);
-            oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
         }
     }
 
