@@ -64,18 +64,12 @@ const displayEstimate = () => {
         let oldImg = document.querySelector(".outputStory img");
         let oldLabel = document.querySelector(".outputStory label");
 
-        if(imgPartOne && imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)") {
-            console.log(imgTwoChecked);
-            console.log(imgPartOne);
+        if(imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)") {
             oldImg.parentNode.replaceChild(imgPartTwo, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
-            console.log(imgPartTwo);
-        } else if (imgPartTwo && imgOneChecked.style.border == "2px inset rgb(7, 220, 227)") {
-            console.log(imgOneChecked);
-            console.log(imgPartTwo);
+        } else if (imgOneChecked.style.border == "2px inset rgb(7, 220, 227)") {
             oldImg.parentNode.replaceChild(imgPartOne, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
-            console.log(imgPartOne);
         }
     }
 
@@ -188,52 +182,27 @@ const displayEstimate = () => {
         createColor.appendChild(imgBlack);
         document.body.appendChild(createColor);
     } else {
-        let oldBlue = document.querySelector("#myBlue");
-        let oldGrey = document.querySelector("#myGrey");
-        let oldGreen = document.querySelector("#myGreen");
-        let oldRed = document.querySelector("#myRed");
-        let oldYellow = document.querySelector("#myYellow");
-        let oldLightBlue = document.querySelector("#myLightBlue");
-        let oldWhite = document.querySelector("#myWhite");
-        let oldBlack = document.querySelector("#myBlack");
+        let oldImg = document.querySelector(".outputColor img");
 
         //check the existing image and replace it with the selected images
-        // if(oldBlue) {
-        //     oldBlue.parentNode.replaceChild(imgGrey, oldBlue);
-        // } else if(oldGrey) {
-        //     oldGrey.parentNode.replaceChild(imgGreen, oldGrey);
-        // } else if(oldGreen) {
-        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
-        // } else if(oldRed) {
-        //     oldRed.parentNode.replaceChild(imgBlue, oldRed);
-        // } else if(oldYellow) {
-        //     oldYellow.parentNode.replaceChild(imgBlue, oldYellow);
-        // } else if(oldLightBlue) {
-        //     oldLightBlue.parentNode.replaceChild(imgBlue, oldLightBlue);
-        // } else if(oldWhite) {
-        //     oldWhite.parentNode.replaceChild(imgBlue, oldWhite);
-        // } else if(oldBlack) {
-        //     oldBlack.parentNode.replaceChild(imgBlue, oldBlack);
-        // }
-
-        // }else if(oldGreen) {
-        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
-        // }else if(oldGreen) {
-        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
-        // }else if(oldGreen) {
-        //     oldGreen.parentNode.replaceChild(imgBlue, oldGreen);
-        // }
-
-
-            // oldBlue.parentNode.replaceChild(imgRed, oldBlue);
-            // oldBlue.parentNode.replaceChild(imgYellow, oldBlue);
-            // oldBlue.parentNode.replaceChild(imgLightBlue, oldBlue);
-            // oldBlue.parentNode.replaceChild(imgWhite, oldBlue);
-            // oldBlue.parentNode.replaceChild(imgBlack, oldBlue);
-
+        if(blueImgChecked.style.border == "2px inset rgb(6, 3, 156)"){
+            oldImg.parentNode.replaceChild(imgBlue, oldImg);
+        } else if(greenImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgGreen, oldImg);
+        } else if(redImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgRed, oldImg);
+        } else if (greyImgChecked.style.border == "2px inset rgb(6, 3, 156)"){
+            oldImg.parentNode.replaceChild(imgGrey, oldImg);
+        } else if (yellowImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgYellow, oldImg);
+        } else if (lightBlueImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgLightBlue, oldImg);
+        } else if (whiteImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgWhite, oldImg);
+        } else if (blackImgChecked.style.border == "2px inset rgb(6, 3, 156)") {
+            oldImg.parentNode.replaceChild(imgBlack, oldImg);
+        }
     }
-
-
 
     // declaring exterior Material variables
     let vinylChecked = document.querySelector("#vinyl");
@@ -288,7 +257,7 @@ const displayEstimate = () => {
         document.body.appendChild(createMaterials);
         document.body.appendChild(br);
     } else if(stuccoChecked.style.border == "2px inset rgb(219, 4, 201)" && !createMaterials) {
-        costPerSqFt = 6000;
+        costPerSqFt += 6000;
         console.log(costPerSqFt);
         createMaterials = document.createElement("div");
         createMaterials.classList.add("outputMaterial");
@@ -314,6 +283,22 @@ const displayEstimate = () => {
         createMaterials.appendChild(stoneImg);
         document.body.appendChild(createMaterials);
         document.body.appendChild(br);
+    } else {
+        let oldImg = document.querySelector(".outputMaterial img");
+
+        //check the existing image and replace it with the selected images
+        if(vinylChecked.style.border == "2px inset rgb(219, 4, 201)"){
+          oldImg.parentNode.replaceChild(winylImg, oldImg);
+        } else if(woodChecked.style.border == "2px inset rgb(219, 4, 201)") {
+          oldImg.parentNode.replaceChild(woodImg, oldImg);
+        } else if(stuccoChecked.style.border == "2px inset rgb(219, 4, 201)") {
+          oldImg.parentNode.replaceChild(stuccoImg, oldImg);
+        } else if (bricksChecked.style.border == "2px inset rgb(219, 4, 201)") {
+          oldImg.parentNode.replaceChild(brickImg, oldImg);
+        } else if (stoneChecked.style.border == "2px inset rgb(219, 4, 201)") {
+          oldImg.parentNode.replaceChild(stoneImg, oldImg);
+        }
+
     }
 
     // declare variables to display square footage
@@ -331,6 +316,9 @@ const displayEstimate = () => {
         divFootage.appendChild(labOne);
         divFootage.appendChild(hOne);
         document.body.appendChild(divFootage);
+    } else {
+      let oldDivFootage = document.querySelector(".footage h3");
+      oldDivFootage.parentNode.replaceChild(hOne, oldDivFootage)
     }
 
     // declaring variable to display Number of garages
@@ -338,9 +326,10 @@ const displayEstimate = () => {
     let valueOfVehicle ="";
     let divGarage = document.querySelector(".outputGarage");
     let labTwo = document.createElement("label");
-    let hTwo = document.createElement("h3");
-    hTwo.style = "margin-left: 10em;"
+    let myH3Value = document.createElement("h3");
+    myH3Value.style = "margin-left: 10em;"
     labTwo.textContent = "Garage(# of Vehicles):";
+
 
     if(document.querySelector("#v1").checked && !divGarage) {
         valueOfVehicle = "1";
@@ -349,7 +338,7 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(hTwo);
+        divGarage.appendChild(myH3Value);
         document.body.appendChild(divGarage);
 
     } else if(document.querySelector("#v2").checked && !divGarage) {
@@ -359,7 +348,7 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(hTwo);
+        divGarage.appendChild(myH3Value);
         document.body.appendChild(divGarage);
 
     } else if(document.querySelector("#v3").checked && !divGarage) {
@@ -369,28 +358,54 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(hTwo);
+        divGarage.appendChild(myH3Value);
         document.body.appendChild(divGarage);
-    }
-    // display the number of vehicles
-    hTwo.textContent = `${valueOfVehicle}`;
+    }  else {
+        let oldDivGarage = document.querySelector(".outputGarage h3")
+        let newH3 = document.createElement("h3");
+        newH3.textContent = "1"
+        newH3.style = "margin-left: 10em;"
+        let newH3Two = document.createElement("h3");
+        newH3Two.textContent = "2"
+        newH3Two.style = "margin-left: 10em;"
+        let newH3Three = document.createElement("h3");
+        newH3Three.textContent = "3"
+        newH3Three.style = "margin-left: 10em;"
+
+
+        if(document.querySelector("#v1").checked) {
+          oldDivGarage.parentNode.replaceChild(newH3, oldDivGarage);
+            costPerSqFt += 15000;
+        } else if(document.querySelector("#v2").checked) {
+            costPerSqFt += 15000 * 2;
+          oldDivGarage.parentNode.replaceChild(newH3Two, oldDivGarage);
+        }else if (document.querySelector("#v3").checked) {
+            costPerSqFt += 15000 * 3;
+          oldDivGarage.parentNode.replaceChild(newH3Three, oldDivGarage);
+        }
+      }
+      // display the number of vehicles
+      myH3Value.textContent = `${valueOfVehicle}`;
 
 
     // declare variable in order to get the estimate
     // creating <div class="output"><label><img></label></div>
     let divEstimate = document.querySelector(".estimateOut");
     let labThree = document.createElement("label");
-    let hThree = document.createElement("h3");
+    let estimateH3 = document.createElement("h3");
     labThree.textContent = "Estimate Cost: ";
-    hThree.style = "margin-left: 10em;"
-    hThree.textContent = `$${costPerSqFt}`;
+    estimateH3.style = "margin-left: 10em;"
+    estimateH3.textContent = `$${costPerSqFt}`;
 
     if(!divEstimate) {
         divEstimate = document.createElement("div");
         divEstimate.classList.add("estimateOut");
         divEstimate.appendChild(labThree);
-        divEstimate.appendChild(hThree);
+        divEstimate.appendChild(estimateH3);
         document.body.appendChild(divEstimate);
+    } else {
+      let oldEstimate = document.querySelector(".estimateOut, h3");
+      oldEstimate.parentNode.replaceChild(estimateH3, oldEstimate);
     }
 
 }
