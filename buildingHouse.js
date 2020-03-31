@@ -65,9 +65,11 @@ const displayEstimate = () => {
         let oldLabel = document.querySelector(".outputStory label");
 
         if(imgTwoChecked.style.border == "2px inset rgb(7, 220, 227)") {
+            costPerSqFt = twoStoryCost * sqFootage;
             oldImg.parentNode.replaceChild(imgPartTwo, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryTwo, oldLabel);
         } else if (imgOneChecked.style.border == "2px inset rgb(7, 220, 227)") {
+            costPerSqFt = oneStoryCost * sqFootage;
             oldImg.parentNode.replaceChild(imgPartOne, oldImg);
             oldLabel.parentNode.replaceChild(labelElementStoryOne, oldLabel);
         }
@@ -285,49 +287,58 @@ const displayEstimate = () => {
         document.body.appendChild(br);
     } else {
         let oldImg = document.querySelector(".outputMaterial img");
-
         //check the existing image and replace it with the selected images
         if(vinylChecked.style.border == "2px inset rgb(219, 4, 201)"){
           oldImg.parentNode.replaceChild(winylImg, oldImg);
         } else if(woodChecked.style.border == "2px inset rgb(219, 4, 201)") {
-          oldImg.parentNode.replaceChild(woodImg, oldImg);
+            costPerSqFt += 5000 + (10 * sqFootage);
+            console.log(costPerSqFt);
+            oldImg.parentNode.replaceChild(woodImg, oldImg);
         } else if(stuccoChecked.style.border == "2px inset rgb(219, 4, 201)") {
+            costPerSqFt += 6000;
+            console.log(costPerSqFt);
           oldImg.parentNode.replaceChild(stuccoImg, oldImg);
         } else if (bricksChecked.style.border == "2px inset rgb(219, 4, 201)") {
+            costPerSqFt += 8000 + (10 * sqFootage);
+            console.log(costPerSqFt);
           oldImg.parentNode.replaceChild(brickImg, oldImg);
+          costPerSqFt += 16000;
+          console.log(costPerSqFt);
         } else if (stoneChecked.style.border == "2px inset rgb(219, 4, 201)") {
           oldImg.parentNode.replaceChild(stoneImg, oldImg);
         }
-
     }
 
     // declare variables to display square footage
     // creating <div class="footage"><h3><img></h3><span></span></div>
     let divFootage = document.querySelector(".footage");
-    let labOne = document.createElement("label");
-    let hOne = document.createElement("h3");
-    hOne.style = "margin-left: 10em;"
-    labOne.textContent = "Square Footage: ";
-    hOne.textContent = `${sqFootage}`;
+    let labelSft = document.createElement("label");
+    let sqftH3 = document.createElement("h3");
+    sqftH3.style = "margin-left: 10em;"
+    sqftH3.id = "sqFootageh3";
+    labelSft.textContent = "Square Footage: ";
+
 
     if(!divFootage) {
         divFootage = document.createElement("div");
         divFootage.classList.add("footage");
-        divFootage.appendChild(labOne);
-        divFootage.appendChild(hOne);
+        divFootage.appendChild(labelSft);
+        divFootage.appendChild(sqftH3);
         document.body.appendChild(divFootage);
     } else {
-      let oldDivFootage = document.querySelector(".footage h3");
-      oldDivFootage.parentNode.replaceChild(hOne, oldDivFootage)
+      let oldDivFootage = document.querySelector("#sqFootageh3");
+      console.log(oldDivFootage);
+      oldDivFootage.parentNode.replaceChild(sqftH3, oldDivFootage)
     }
+    sqftH3.textContent = `${sqFootage} sq ft`;
 
     // declaring variable to display Number of garages
     // creating <div class="output"><label><img></label></div>
     let valueOfVehicle ="";
     let divGarage = document.querySelector(".outputGarage");
     let labTwo = document.createElement("label");
-    let myH3Value = document.createElement("h3");
-    myH3Value.style = "margin-left: 10em;"
+    let mySpanValue = document.createElement("h3");
+    mySpanValue.style = "margin-left: 10em;"
     labTwo.textContent = "Garage(# of Vehicles):";
 
 
@@ -338,7 +349,7 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(myH3Value);
+        divGarage.appendChild(mySpanValue);
         document.body.appendChild(divGarage);
 
     } else if(document.querySelector("#v2").checked && !divGarage) {
@@ -348,7 +359,7 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(myH3Value);
+        divGarage.appendChild(mySpanValue);
         document.body.appendChild(divGarage);
 
     } else if(document.querySelector("#v3").checked && !divGarage) {
@@ -358,56 +369,61 @@ const displayEstimate = () => {
         divGarage = document.createElement("div");
         divGarage.classList.add("outputGarage");
         divGarage.appendChild(labTwo);
-        divGarage.appendChild(myH3Value);
+        divGarage.appendChild(mySpanValue);
         document.body.appendChild(divGarage);
     }  else {
-        let oldDivGarage = document.querySelector(".outputGarage h3")
-        let newH3 = document.createElement("h3");
-        newH3.textContent = "1"
-        newH3.style = "margin-left: 10em;"
-        let newH3Two = document.createElement("h3");
-        newH3Two.textContent = "2"
-        newH3Two.style = "margin-left: 10em;"
-        let newH3Three = document.createElement("h3");
-        newH3Three.textContent = "3"
-        newH3Three.style = "margin-left: 10em;"
 
+        let oldDivGarage = document.querySelector(".outputGarage h3")
+        let newSpan = document.createElement("h3");
+        newSpan.textContent = "1"
+        newSpan.style = "margin-left: 10em;"
+        let newSpanTwo = document.createElement("h3");
+        newSpanTwo.textContent = "2"
+        newSpanTwo.style = "margin-left: 10em;"
+        let newSpanThree = document.createElement("h3");
+        newSpanThree.textContent = "3"
+        newSpanThree.style = "margin-left: 10em;"
 
         if(document.querySelector("#v1").checked) {
-          oldDivGarage.parentNode.replaceChild(newH3, oldDivGarage);
+          oldDivGarage.parentNode.replaceChild(newSpan, oldDivGarage);
             costPerSqFt += 15000;
+            console.log(costPerSqFt);
         } else if(document.querySelector("#v2").checked) {
             costPerSqFt += 15000 * 2;
-          oldDivGarage.parentNode.replaceChild(newH3Two, oldDivGarage);
+            console.log(costPerSqFt);
+          oldDivGarage.parentNode.replaceChild(newSpanTwo, oldDivGarage);
         }else if (document.querySelector("#v3").checked) {
             costPerSqFt += 15000 * 3;
-          oldDivGarage.parentNode.replaceChild(newH3Three, oldDivGarage);
+            console.log(costPerSqFt);
+            oldDivGarage.parentNode.replaceChild(newSpanThree, oldDivGarage);
         }
       }
-      // display the number of vehicles
-      myH3Value.textContent = `${valueOfVehicle}`;
 
+      // display the number of vehicles
+      mySpanValue.textContent = `${valueOfVehicle}`;
 
     // declare variable in order to get the estimate
     // creating <div class="output"><label><img></label></div>
-    let divEstimate = document.querySelector(".estimateOut");
-    let labThree = document.createElement("label");
-    let estimateH3 = document.createElement("h3");
-    labThree.textContent = "Estimate Cost: ";
-    estimateH3.style = "margin-left: 10em;"
-    estimateH3.textContent = `$${costPerSqFt}`;
+    let divEstimate = document.querySelector(".displayEstimate");
+    let estimateLabel = document.createElement("label");
+    let estimateH2 = document.createElement("h3");
+    estimateLabel.textContent = "Estimate Cost: ";
+    estimateH2.id = "estimateOut";
+    estimateH2.style = "margin-left: 10em;"
 
     if(!divEstimate) {
         divEstimate = document.createElement("div");
-        divEstimate.classList.add("estimateOut");
-        divEstimate.appendChild(labThree);
-        divEstimate.appendChild(estimateH3);
+        divEstimate.classList.add("displayEstimate");
+        divEstimate.appendChild(estimateLabel);
+        divEstimate.appendChild(estimateH2);
         document.body.appendChild(divEstimate);
     } else {
-      let oldEstimate = document.querySelector(".estimateOut, h3");
-      oldEstimate.parentNode.replaceChild(estimateH3, oldEstimate);
+      let oldEstimateh2 = document.querySelector("#estimateOut");
+      console.log(oldEstimateh2);
+      oldEstimateh2.parentNode.replaceChild(estimateH2, oldEstimateh2);
+      console.log(estimateH2);
     }
-
+    estimateH2.textContent = `$${costPerSqFt}`;
 }
 
 const addBorderOne = imgElement => {
