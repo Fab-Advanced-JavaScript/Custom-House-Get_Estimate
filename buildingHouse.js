@@ -1,4 +1,4 @@
-
+// the launcher
 const init = () => {
         let btn = document.querySelector("#estimate");
         btn.onclick = displayEstimate;
